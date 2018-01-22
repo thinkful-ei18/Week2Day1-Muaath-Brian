@@ -1,8 +1,9 @@
+'use strict';
 /* global store, cuid */
 
 // eslint-disable-next-line no-unused-vars
 const shoppingList = (function(){
-
+  const Item
   function generateItemElement(item) {
     let itemTitle = `<span class="shopping-item shopping-item__checked">${item.name}</span>`;
     if (!item.checked) {
@@ -57,6 +58,13 @@ const shoppingList = (function(){
   
   function addItemToShoppingList(itemName) {
     store.items.push({ id: cuid(), name: itemName, checked: false });
+    try {Item.validateName; Item.create; store.items.push();
+      render();
+      
+    } catch (error) {
+      console.log('Cannot add item:{error.message}');
+    }
+ 
   }
   
   function handleNewItemSubmit() {
