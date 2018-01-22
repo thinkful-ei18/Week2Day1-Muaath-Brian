@@ -1,9 +1,8 @@
 'use strict';
-/* global store, cuid */
+/* global store, cuid, Item */
 
 // eslint-disable-next-line no-unused-vars
 const shoppingList = (function(){
-  const Item
   function generateItemElement(item) {
     let itemTitle = `<span class="shopping-item shopping-item__checked">${item.name}</span>`;
     if (!item.checked) {
