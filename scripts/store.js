@@ -36,7 +36,6 @@ const store = (function () {
       Item.validateName(name);
       const newItem = Item.create(name);
       items.push(newItem);
-      shoppingList.render();
     } catch (error) {
       console.log('Did not create item');
     }
@@ -44,8 +43,8 @@ const store = (function () {
 
   function findAndToggleChecked(id){
     this.findById(id).checked = !this.findById(id).checked;
-    shoppingList.render();
   }
+
   function findAndUpdateName(id , newName) {
     try {
       Item.validateName(newName);
@@ -56,9 +55,7 @@ const store = (function () {
 
   }
   function findAndDelete(id){
-    console.log('1');
-    items.filter(id);
-    console.log('2');
+    this.items = this.items.filter(item => item.id !== id); 
   }
 
   return {
